@@ -2,8 +2,8 @@
 import * as vscode from 'vscode';
 const whitespaceAtEndOfLine = /\s*$/;
 
-function activate(context) {
-  let disposable = vscode.commands.registerCommand('joinCommentAware.join', () => {
+export function activate(context) {
+  let disposable = vscode.commands.registerCommand('mergeLineSmart.merge', () => {
     var textEditor = vscode.window.activeTextEditor;
     const document = textEditor.document;
 
@@ -68,9 +68,9 @@ function activate(context) {
             i == 0
               ? 0
               : newSelections
-                  .slice(0, i)
-                  .map(x => x.numLinesRemoved)
-                  .reduce((a, b) => a + b);
+                .slice(0, i)
+                .map(x => x.numLinesRemoved)
+                .reduce((a, b) => a + b);
           const newLineNumber = selection.start.line - numPreviousLinesRemoved;
           return new vscode.Selection(
             newLineNumber,
@@ -191,7 +191,6 @@ function commentRegexByLanguage(languageId: string): RegExp {
   }
 }
 
-exports.activate = activate;
 // Supported languages:
 //   https://code.visualstudio.com/docs/languages/identifiers
 function beginStringQuoteRegexByLanguage(languageId: string): RegExp {
@@ -217,6 +216,5 @@ function endStringQuoteRegexByLanguage(languageId: string): RegExp {
 }
 
 // this method is called when your extension is deactivated
-function deactivate() {}
-exports.deactivate = deactivate;
+export function deactivate() { }
 //# sourceMappingURL=extension.js.map

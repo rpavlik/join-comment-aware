@@ -1,27 +1,31 @@
 {
-  "name": "join-comment-aware",
-  "displayName": "join-comment-aware",
-  "description": "When joining lines, delete preceding comment blocks.",
-  "version": "0.0.3",
-  "publisher": "johngraham262",
+  "name": "merge-line-smart",
+  "displayName": "merge-line-smart",
+  "description": "When merging lines, delete preceding comment blocks and combine quoted string literals.",
+  "version": "0.0.4",
+  "publisher": "rpavlik",
   "engines": {
-    "vscode": "^1.17.0"
+    "vscode": "^1.25.0"
   },
-  "categories": ["Other"],
-  "activationEvents": ["onCommand:joinCommentAware.join"],
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:mergeLineSmart.merge"
+  ],
   "main": "./out/extension",
   "contributes": {
     "commands": [
       {
-        "command": "joinCommentAware.join",
-        "title": "Join Comment Aware"
+        "command": "mergeLineSmart.merge",
+        "title": "Merge lines (including comments, string literals)"
       }
     ]
   },
   "icon": "images/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/johngraham262/join-comment-aware"
+    "url": "https://github.com/rpavlik/merge-line-smart"
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -31,9 +35,10 @@
     "test": "npm run compile && node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
-    "typescript": "^2.5.3",
-    "vscode": "^1.1.5",
-    "@types/node": "^7.0.43",
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.21",
+    "tslint": "^5.8.0",
+    "@types/node": "^8.10.25",
     "@types/mocha": "^2.2.42"
   }
 }
