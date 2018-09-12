@@ -140,7 +140,7 @@ function joinLineWithNext(
         line2.text.length - line2.text.replace(/^\s*/, '').length;
     }
   } else if (
-    languageIsSupported(document.languageId) &&
+    languageIsSupportedForQuotes(document.languageId) &&
     textEndsWithQuotes(document.languageId, line1.text) &&
     textBeginsWithQuotes(document.languageId, line2.text)
   ) {
@@ -191,6 +191,13 @@ function commentRegexByLanguage(languageId: string): RegExp {
   }
 }
 
+function languageIsSupportedForQuotes(languageId: string): boolean {
+  return (
+    ['ruby', 'python', 'javascript', 'java', 'json', 'csharp', 'cpp', 'go', 'php'].indexOf(
+      languageId
+    ) >= 0
+  );
+}
 // Supported languages:
 //   https://code.visualstudio.com/docs/languages/identifiers
 function beginStringQuoteRegexByLanguage(languageId: string): RegExp {
