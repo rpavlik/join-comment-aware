@@ -1,6 +1,7 @@
-# join-comment-aware
+# merge-line-smart
 
-`join-comment-aware` will join lines and remove extraneous comment indicators. Previously when joining lines (e.g. via `ctrl+j` or `shift+j` in vim mode), comment characters are kept and you'll have to remove them manually.
+`join-comment-aware` will join lines and remove extraneous comment indicators, as well as merging quoted string literals. if they continue across lines.
+ Previously when joining lines (e.g. via `ctrl+j` or `shift+j` in vim mode), comment characters are kept and you'll have to remove them manually.
 
 ![demo](images/demo.gif)
 
@@ -23,11 +24,32 @@ New join functionality:
 # This is a comment and this is the 2nd line
 ```
 
+
+Lines to join with string literals (new functionality added to predecessor `join-comment-aware`):
+
+```c++
+    "This is a string literal"
+    "and this is the 2nd line"
+```
+
+Old join style: 
+
+
+```c++
+    "This is a string literal" "and this is the 2nd line"
+```
+
+New join functionality:
+
+```c++
+    "This is a string literal and this is the 2nd line"
+```
+
 ## Suggested Installation
 
-This is available through the vscode standard installation and in the [vscode Marketplace](https://marketplace.visualstudio.com/items?itemName=johngraham262.join-comment-aware).
+This is available through the vscode standard installation (Not yet in the vscode Marketplace).
 
-I'd recommend replacing your normal join command (e.g. `ctrl+j` or `shift+j` in vim mode) with `join-comment-aware`. If a file type isn't recognized, it performs the default behavior as before.
+I'd recommend replacing your normal join command (e.g. `ctrl+j` or `shift+j` in vim mode) with `merge-lines-smart`. If a file type isn't recognized, it performs the default behavior as before.
 
 To replace the default join command *without* vim mode (`ctrl+j`), add this to your `keybindings.json`:
 ```
@@ -35,7 +57,7 @@ To replace the default join command *without* vim mode (`ctrl+j`), add this to y
   ...
   {
     "key": "ctrl+j",
-    "command": "joinCommentAware.join",
+    "command": "mergeLinesSmart.merge",
     "when": "terminalFocus"
   }
 ]
@@ -51,7 +73,7 @@ To replace the default join command *with* vim mode (`shift+j`), add this to you
       "after": [],
       "commands": [
         {
-          "command": "joinCommentAware.join",
+          "command": "mergeLinesSmart.merge",
           "args": []
         }
       ]
@@ -77,11 +99,11 @@ The following file types are supported with comment-awareness joining. Otherwise
 
 ## Release Notes
 
-Initial join-comment-aware release.
+Initial `merge-lines-smart` release. Builds on [`join-comment-aware` 0.0.3](https://github.com/johngraham262/join-comment-aware) - thank you to @johngraham262 for a great starting place.
 
-## Motivation
+### 0.0.4
 
-I've been thinking about switching from vim to vscode and noticed the line-joiner could use some improvement. And I saw [this issue](https://github.com/Microsoft/vscode/issues/17553) that other folks have the same feedback. I also was inspired by the [original vscode join](https://github.com/wmaurer/vscode-join-lines), which got integrated directly into the editor.
+First version of `merge-lines-smart`.
 
 ### 0.0.3
 
