@@ -2,7 +2,7 @@
   "name": "merge-line-smart",
   "displayName": "merge-line-smart",
   "description": "When merging lines, delete preceding comment blocks and combine quoted string literals.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "rpavlik",
   "engines": {
     "vscode": "^1.25.0"
