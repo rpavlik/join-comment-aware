@@ -169,7 +169,7 @@ function joinLineWithNext(
 
 function languageIsSupported(languageId: string): boolean {
   return (
-    ['ruby', 'python', 'javascript', 'java', 'json', 'csharp', 'cpp', 'go', 'php'].indexOf(
+    ['ruby', 'python', 'javascript', 'java', 'json', 'csharp', 'cpp', 'c', 'go', 'php'].indexOf(
       languageId
     ) >= 0
   );
@@ -183,7 +183,7 @@ function commentRegexByLanguage(languageId: string): RegExp {
   } else if (languageId === 'python') {
     return /^["""|#|\s*]*["""|#]["""|#|\s*]/;
   } else if (
-    ['javascript', 'java', 'json', 'csharp', 'cpp', 'go', 'php'].indexOf(languageId) >= 0
+    ['javascript', 'java', 'json', 'csharp', 'cpp', 'c', 'go', 'php'].indexOf(languageId) >= 0
   ) {
     return /^[(\/\/)|\s]*(\/\/)[(\/\/)|\s]*/;
   } else {
@@ -193,7 +193,7 @@ function commentRegexByLanguage(languageId: string): RegExp {
 
 function languageIsSupportedForQuotes(languageId: string): boolean {
   return (
-    ['ruby', 'python', 'javascript', 'java', 'json', 'csharp', 'cpp', 'go', 'php'].indexOf(
+    ['ruby', 'python', 'javascript', 'java', 'json', 'csharp', 'cpp', 'c', 'go', 'php'].indexOf(
       languageId
     ) >= 0
   );
@@ -203,7 +203,7 @@ function languageIsSupportedForQuotes(languageId: string): boolean {
 function beginStringQuoteRegexByLanguage(languageId: string): RegExp {
   if (['javascript', 'json', 'ruby', 'python'].indexOf(languageId) >= 0) {
     return /^\s*['"]/;
-  } else if (['csharp', 'java', 'cpp', 'go', 'php'].indexOf(languageId) >= 0) {
+  } else if (['csharp', 'java', 'cpp', 'c', 'go', 'php'].indexOf(languageId) >= 0) {
     return /^\s*"/;
   } else {
     return /^/;
@@ -215,7 +215,7 @@ function beginStringQuoteRegexByLanguage(languageId: string): RegExp {
 function endStringQuoteRegexByLanguage(languageId: string): RegExp {
   if (['javascript', 'json', 'ruby', 'python'].indexOf(languageId) >= 0) {
     return /['"]\s*$/;
-  } else if (['csharp', 'java', 'cpp', 'go', 'php'].indexOf(languageId) >= 0) {
+  } else if (['csharp', 'java', 'cpp', 'c', 'go', 'php'].indexOf(languageId) >= 0) {
     return /"\s*$/;
   } else {
     return /$/;
