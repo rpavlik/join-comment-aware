@@ -46,6 +46,21 @@ New join functionality:
 "This is a string literal and this is the 2nd line"
 ```
 
+## Build instructions
+
+Make sure you have the deps:
+
+```sh
+npm install
+```
+
+Then build the `.vsix`:
+
+```sh
+npm run compile
+npm run package
+```
+
 ## Suggested Installation
 
 This is available through the vscode standard installation (Not yet in the
