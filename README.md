@@ -76,7 +76,7 @@ your `keybindings.json`:
 ```json
 {
   "key": "ctrl+j",
-  "command": "mergeLinesSmart.merge",
+  "command": "mergeLineSmart.merge",
   "when": "terminalFocus"
 }
 ```
@@ -92,7 +92,7 @@ your `settings.json`:
       "after": [],
       "commands": [
         {
-          "command": "mergeLinesSmart.merge",
+          "command": "mergeLineSmart.merge",
           "args": []
         }
       ]
